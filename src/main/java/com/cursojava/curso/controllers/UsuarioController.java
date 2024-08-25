@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController //Indica que esta clase es un controlador REST,
+// lo que significa que maneja solicitudes HTTP y responde con datos JSON
+
 public class UsuarioController {
 
-    @Autowired
+    @Autowired //se utiliza para inyectar automáticamente las dependencias gestionadas por Spring.
+    // En este caso, UsuarioDao y JWTutil son inyectados para ser utilizados en el controlador.
     private UsuarioDao usuarioDao;
 
     @Autowired
@@ -29,7 +32,8 @@ public class UsuarioController {
         usuario.setTelefono("123456789");
         return usuario;
     }
-
+    //@RequestMapping: Define una ruta API para acceder a este metodo.
+    //La ruta api/usuarios acepta solicitudes GET.
     @RequestMapping(value="api/usuarios", method = RequestMethod.GET)
     public List<Usuario> getUsuarios(@RequestHeader(value="Authorization") String token){
 
@@ -54,15 +58,6 @@ public class UsuarioController {
         usuarioDao.registrar(usuario);
     }
 
-    @RequestMapping(value="usuario12")
-    public Usuario modificar(){
-        Usuario usuario = new Usuario();
-        usuario.setNombre("Marcos");
-        usuario.setApellido("Pividori");
-        usuario.setEmail("mpividori@gmail.com");
-        usuario.setTelefono("123456789");
-        return usuario;
-    }
     @RequestMapping(value="api/usuarios/{id}", method = RequestMethod.DELETE)
     public void eliminar(@RequestHeader(value="Authorization") String token,
                          @PathVariable Long id){

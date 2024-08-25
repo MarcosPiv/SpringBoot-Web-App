@@ -12,12 +12,15 @@ import java.util.List;
 @Repository
 @Transactional
 public class UsuarioDaoImp implements UsuarioDao {
-
+    //Inyecta un EntityManager, que es el API de JPA que se utiliza para interactuar con la BD.
+    // Proporciona métodos para realizar operaciones CRUD.
     @PersistenceContext
     EntityManager entityManager;
 
+
     @Override
-    @Transactional
+    @Transactional //asegura que los métodos dentro de esta clase se ejecuten dentro de una transacción.
+    //Si ocurre una excepción, la transacción se revertirá automáticamente para evitar datos inconsistentes
     public List<Usuario> getUsuarios() {
         String query = "FROM Usuario u";
         return entityManager.createQuery(query).getResultList();
