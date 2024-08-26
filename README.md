@@ -19,7 +19,7 @@ Permite a los usuarios autenticados eliminar otros usuarios del sistema mediante
 ## Estructura del Proyecto
 
 - **Backend**: Desarrollado en Java utilizando Spring Boot. Contiene controladores para manejar las solicitudes HTTP, servicios para la lógica de negocio y DAOs para interactuar con la base de datos.
-- **Frontend**: Interfaz de usuario básica que permite registrar, iniciar sesión, y gestionar usuarios. Está construida en HTML, SCSS y JavaScript.
+- **Frontend**: Interfaz de usuario básica que permite registrar, iniciar sesión, y gestionar usuarios. Está construida en HTML, CSS y JavaScript.
 - **Base de Datos**: Utiliza JPA para la persistencia de datos en una base de datos SQL.
 
 ## Endpoints de la API
